@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Search } from 'lucide-react';
+import { Film } from 'lucide-react';
+import { Moon } from 'lucide-react';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -11,6 +14,47 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+const Header = () => {
+  return (
+    <div className="flex justify-center my-5">
+      <div className="flex flex-row justify-between w-[375px] h-[69px]">
+
+        <div className="w-[92px] h-[20px] flex flex-row items-center justify-center gap-2 ">
+          <Film />
+          <span className="text-[#4338CA] text-[16px] font-[Inter] italic font-bold leading-[20px] tracking-wide">Movie Z</span>
+        </div>
+
+        <div className=" w-[84px] h-[36px] justify-between flex flex-row">
+          <Search className="text-gray-500 ">
+          </Search>
+          <Moon className="text-gray-500"></Moon>
+
+        </div>
+
+      </div>
+    </div>
+
+  )
+};
+
+const Footer = () => {
+  return (
+    <div className="flex justify-center">
+      <div className="w-[375px] h-[308px] flex justify-center bg-indigo-700">
+        <div className="w-[335px] h-[228px] my-[40px] mx-[5px] ">
+          <div className="w-[92px] h-[20px] flex flex-row items-center justify-center gap-2 ">
+            <Film className="text-[#FAFAFA]"></Film>
+            <span className="text-[#FAFAFA] text-[16px] font-[Inter] italic font-bold leading-[20px] tracking-wide">Movie Z</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  )
+};
+
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,9 +69,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
