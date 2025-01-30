@@ -32,7 +32,8 @@ const [popularMoviesData, setPopularMoviesData] = useState([]);
       if(axios.isAxiosError(err)){
         setError(err.response.data.status.message)
       }
-     console.log(("this is the err", error));
+     console.log((error));
+     console.log("hi");
      
     }
   };
