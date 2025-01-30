@@ -33,7 +33,9 @@ const [popularMoviesData, setPopularMoviesData] = useState([]);
         setError(err.response.data.status.message)
       }
      console.log((error));
-     console.log("hi");
+     console.log("hi``");
+     console.log((error));
+     console.log("hi``");
      
     }
   };
