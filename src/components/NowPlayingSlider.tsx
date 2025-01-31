@@ -14,6 +14,7 @@ import {
 
 type NowPlayingSlider = {
     loading : boolean
+    data : [""]
 }
 
 export default function Home() {
@@ -54,7 +55,7 @@ export default function Home() {
 };
 
   useEffect(() => {
-    getMovieData();
+   
   }, []);
 
   return (

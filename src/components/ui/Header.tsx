@@ -3,7 +3,8 @@ import { Film } from "lucide-react";
 import { Moon } from "lucide-react";
 
 
-  
+  function Header(){
+    return (
       <div className="flex justify-center my-5">
         <div className="flex flex-row justify-between w-[375px] h-[69px]">
           <div className="w-[92px] h-[20px] flex flex-row items-center justify-center gap-2 ">
@@ -19,4 +20,7 @@ import { Moon } from "lucide-react";
           </div>
         </div>
       </div>
+    )
+  }
+  export default Header ;
    
