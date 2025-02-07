@@ -14,12 +14,10 @@ import {
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Movie } from "@/types/Movie-type";
-
 const TMDB_BASE_URL = process.env.TMDB_BASE_URL;
 const TMDB_API_TOKEN = process.env.TMDB_API_TOKEN;
 function CarouselSlider() {
   const [nowPlayingData, setNowPlayingData] = useState<Movie[]>([]);
-
   const getNowPlayingMovieData = async () => {
     try {
       const response = await axios.get(
@@ -30,14 +28,15 @@ function CarouselSlider() {
           },
         }
       );
-      console.log("Now Playing Movies:", response.data.results);
       setNowPlayingData(response.data.results);
     } catch (err) {
       console.log(err);
     }
   };
+  
   useEffect(() => {
     getNowPlayingMovieData();
+    // getTrailerData();
   }, []);
   return (
     <div>
@@ -89,7 +88,7 @@ function CarouselSlider() {
       </div>
 
       <div className="hidden md:block">
-        <Carousel className="w-screens max-h-[600px] flex flex-col p-0 ">
+        <Carousel className="w-9/12 max-h-[600px] flex mx-44 flex-col p-0 ">
           <CarouselContent>
             {nowPlayingData.slice(0, 10).map((movie) => (
               <CarouselItem key={movie.id}>
@@ -97,13 +96,13 @@ function CarouselSlider() {
                   <Card>
                     <CardContent className="p-0 ">
                       <div className="">
-                        {/* <Image
+                        <Image
                           src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`}
                           width={10000}
                           height={10000}
                           alt="Picture of the author"
                           className="absolute "
-                        /> */}
+                        />
                         <div className="p-5 relative top-0 left-0 min-h-[500px] w-screen flex flex-col justify-center ml-40">
                           <div className="flex flex-col gap-3">
                             <div className="text-white">

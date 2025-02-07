@@ -1,11 +1,17 @@
 "use client";
-
-import NowPlayingSlider from "@/components/NowPlayingSlider";
+import CarouselSlider from "@/components/senior-components/CarouselSlider";
+import PopularMovie from "@/components/senior-components/PopularMovie";
+import TopRatedMovie from "@/components/senior-components/TopRatedMovie";
+import UpcomingMovie from "@/components/senior-components/UpcomingMovie";
 
 export default function Home() {
+
   return (
-    <div className="flex self-center justify-self-center">
-      <NowPlayingSlider></NowPlayingSlider>
+    <div className=" w-screen">
+      <CarouselSlider/>
+      <UpcomingMovie/>
+      <PopularMovie/>
+      <TopRatedMovie/>
     </div>
   );
 }
