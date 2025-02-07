@@ -7,7 +7,7 @@ function Footer() {
         <div>
           <div className="flex gap-2 text-white ">
             <Film />
-            <span className="italic font-bold text-[#FAFAFA] text-[16px] font-[Inter] leading-[20px] tracking-wide"> Movie Z</span>
+            <p className="italic font-bold">Movie Z</p>
           </div>
           <p className="mb-7">© 2024 Movie Z. All Rights Reserved.</p>
           <div className="flex gap-12">

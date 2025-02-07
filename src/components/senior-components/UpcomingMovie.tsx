@@ -44,7 +44,7 @@ function UpcomingMovie() {
         <div className="w-[100%] max-w-[1175px] flex justify-between items-center mb-5">
           <h3 className="font-semibold text-2xl ">Upcoming</h3>
           <div className="flex text-sm font-medium gap-2 items-center">
-            see more <ArrowRight className="w-4 h-4" />
+            <p>See more</p> <ArrowRight className="w-4 h-4" />
           </div>
         </div>
         {upcomingMovieData.slice(0, 10).map((movie) => (
@@ -77,7 +77,7 @@ function UpcomingMovie() {
           <h3 className="font-semibold text-2xl ">Upcoming</h3>
           <Link href={"/upcoming"}>
             <div className="flex text-sm font-medium gap-2 items-center">
-              see more <ArrowRight className="w-4 h-4" />
+              See more <ArrowRight className="w-4 h-4" />
             </div>
           </Link>
         </div>

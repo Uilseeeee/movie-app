@@ -22,7 +22,7 @@ function MovieGuideCard() {
         }
       );
       setUpcomingMovieData(response.data.results);
-      console.log("naandeee", response);
+      console.log(response);
     } catch (err) {
       console.log(err);
     }

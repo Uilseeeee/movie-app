@@ -19,7 +19,7 @@ function Header() {
     <div className="mx-5 flex items-center justify-between my-5">
       <div className="flex gap-2 text-indigo-700 ">
         <Film />
-        <p className="font-bold"> Movie Z</p>
+        <p className="italic font-bold"> Movie Z</p>
       </div>
       <div className="hidden md:flex">
         <DropdownMenu>
@@ -49,17 +49,15 @@ function Header() {
                   <DropdownMenuItem className="rounded-full  h-[20px] font-semibold text-xs border border-gray">
                     Animation <ChevronRight />
                   </DropdownMenuItem>
-                  <DropdownMenuItem className="rounded-full  h-[20px] font-semibold text-xs border border-gray">
-                    Biography <ChevronRight />
-                  </DropdownMenuItem>
+                
                   <DropdownMenuItem className="rounded-full  h-[20px] font-semibold text-xs border border-gray">
                     Comedy <ChevronRight />
                   </DropdownMenuItem>
-                </div>
-                <div className="flex gap-4">
                   <DropdownMenuItem className="rounded-full  h-[20px] font-semibold text-xs border border-gray">
                     Crime <ChevronRight />
                   </DropdownMenuItem>
+                </div>
+                <div className="flex gap-4">
                   <DropdownMenuItem className="rounded-full  h-[20px] font-semibold text-xs border border-gray">
                     Documentary <ChevronRight />
                   </DropdownMenuItem>
@@ -74,12 +72,7 @@ function Header() {
                   </DropdownMenuItem>
                 </div>
                 <div className="flex gap-4">
-                  <DropdownMenuItem className="rounded-full  h-[20px] font-semibold text-xs border border-gray">
-                    Film-Noir <ChevronRight />
-                  </DropdownMenuItem>
-                  <DropdownMenuItem className="rounded-full  h-[20px] font-semibold text-xs border border-gray">
-                    Game-Show <ChevronRight />
-                  </DropdownMenuItem>
+                 
                   <DropdownMenuItem className="rounded-full  h-[20px] font-semibold text-xs border border-gray">
                     History <ChevronRight />
                   </DropdownMenuItem>
@@ -89,42 +82,31 @@ function Header() {
                   <DropdownMenuItem className="rounded-full  h-[20px] font-semibold text-xs border border-gray">
                     Music <ChevronRight />
                   </DropdownMenuItem>
-                </div>
-                <div className="flex gap-4">
-                  <DropdownMenuItem className="rounded-full  h-[20px] font-semibold text-xs border border-gray">
-                    Musical <ChevronRight />
-                  </DropdownMenuItem>
                   <DropdownMenuItem className="rounded-full  h-[20px] font-semibold text-xs border border-gray">
                     Mystery <ChevronRight />
                   </DropdownMenuItem>
                   <DropdownMenuItem className="rounded-full  h-[20px] font-semibold text-xs border border-gray">
-                    News <ChevronRight />
-                  </DropdownMenuItem>
-                  <DropdownMenuItem className="rounded-full  h-[20px] font-semibold text-xs border border-gray">
-                    Reality-TV <ChevronRight />
-                  </DropdownMenuItem>
-                  <DropdownMenuItem className="rounded-full  h-[20px] font-semibold text-xs border border-gray">
                     Romance <ChevronRight />
-                  </DropdownMenuItem>
+                  </DropdownMenuItem> 
                 </div>
                 <div className="flex gap-4">
-                  <DropdownMenuItem className="rounded-full  h-[20px] font-semibold text-xs border border-gray">
-                    Sci-Fi <ChevronRight />
+                <DropdownMenuItem className="rounded-full  h-[20px] font-semibold text-xs border border-gray">
+                    Science-Fiction <ChevronRight />
                   </DropdownMenuItem>
                   <DropdownMenuItem className="rounded-full  h-[20px] font-semibold text-xs border border-gray">
-                    Short <ChevronRight />
-                  </DropdownMenuItem>
-                  <DropdownMenuItem className="rounded-full  h-[20px] font-semibold text-xs border border-gray">
-                    Sport <ChevronRight />
-                  </DropdownMenuItem>
-                  <DropdownMenuItem className="rounded-full h-[20px] font-semibold text-xs border border-gray">
-                    Talk-Show <ChevronRight />
+                    TV movie <ChevronRight />
                   </DropdownMenuItem>
                   <DropdownMenuItem className="rounded-full  h-[20px] font-semibold text-xs border border-gray">
                     Thriller <ChevronRight />
                   </DropdownMenuItem>
                   <DropdownMenuItem className="rounded-full  h-[20px] font-semibold text-xs border border-gray">
                     War <ChevronRight />
+                  </DropdownMenuItem>
+                </div>
+                <div className="flex gap-4">
+                 
+                  <DropdownMenuItem className="rounded-full  h-[20px] font-semibold text-xs border border-gray">
+                    Western <ChevronRight />
                   </DropdownMenuItem>
                 </div>
               </div>
