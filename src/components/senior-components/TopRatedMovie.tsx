@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 import { Card } from "../ui/card";
 import { useState, useEffect } from "react";
@@ -6,6 +7,9 @@ import { Movie } from "@/types/Movie-type";
 import axios from "axios";
 import Image from "next/image";
 import { Star, ArrowRight } from "lucide-react";
+import link from "next/link";
+import { useRouter } from "next/navigation"
+
 const TMDB_BASE_URL = process.env.TMDB_BASE_URL;
 const TMDB_API_TOKEN = process.env.TMDB_API_TOKEN;
 function TopRatedMovie() {
@@ -25,6 +29,9 @@ function TopRatedMovie() {
       console.log(err);
     }
 
+  };
+  const handleMovieClick = (movieId: number) => {
+    router.push(`/detail/${movieId}`);
   };
 
   useEffect(() => {

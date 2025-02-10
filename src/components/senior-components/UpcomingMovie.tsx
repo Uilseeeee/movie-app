@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 import { Card } from "../ui/card";
 import { useState, useEffect } from "react";
@@ -58,7 +59,7 @@ function UpcomingMovie() {
               width={157}
               height={233}
               alt="Picture of the author"
-              className="rounded-tr-[10px] rounded-tl-[10px]"
+              className="rounded-tr-[10px] rounded-tl-[10px] bg-blue-500 hover:bg-red-500 transition-colors duration-300"
             />
             <div className="p-2">
               <div className="flex items-center gap-1 ">

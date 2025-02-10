@@ -1,15 +1,21 @@
 "use client";
+
 import React from "react";
 import { Card } from "../ui/card";
 import { useState, useEffect } from "react";
 import { Movie } from "@/types/Movie-type";
 import axios from "axios";
 import Image from "next/image";
-import { Star, ArrowRight } from "lucide-react";
+import { Star, ArrowRight, Router } from "lucide-react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+
 const TMDB_BASE_URL = process.env.TMDB_BASE_URL;
 const TMDB_API_TOKEN = process.env.TMDB_API_TOKEN;
+
 function PopularMovie() {
   const [popularMovieData, setPopularMoviesData] = useState<Movie[]>([]);
+  const router = useRouter();
   const PopularMovie = async () => {
     try {
       const response = await axios.get(
@@ -25,6 +31,9 @@ function PopularMovie() {
       console.log(err);
     }
   };
+  const handleMovieClick = (movieId: number) => {
+    router.push(`/detail/${movieId}`);
+  };
   useEffect(() => {
     PopularMovie();
   }, []);
@@ -38,7 +47,8 @@ function PopularMovie() {
           </div>
         </div>
         {popularMovieData.slice(0, 10).map((movie) => (
-          <Card key={movie.id} className="w-[157px] h-[309px]  rounded-[10px]">
+          <Card 
+          key={movie.id} className="w-[157px] h-[309px]  rounded-[10px]">
             <Image
               src={`https://image.tmdb.org/t/p/w1280${movie.poster_path}`}
               width={157}
@@ -60,9 +70,11 @@ function PopularMovie() {
         <div className="hidden md:flex max-w-[1277px]  md:flex-wrap gap-5">
           <div className="w-[100%] max-w-[1230px] flex justify-between items-center mb-5">
             <h3 className="font-semibold text-2xl ">Popular</h3>
+            <Link href={"/popular"}>
             <div className="flex text-sm font-medium gap-2 items-center">
               see more <ArrowRight className="w-4 h-4" />
             </div>
+            </Link>
           </div>
           {popularMovieData.slice(0, 10).map((movie) => (
             <Card
