@@ -22,7 +22,7 @@ const Page = () => {
     <div className="p-[5px]">
       <div className="md:hidden  flex flex-wrap gap-5 mt-8">
         <div className="w-[100%] max-w-[1175px] flex justify-between items-center mb-5">
-          <h3 className="font-semibold text-2xl ">Upcoming</h3>
+          <h3 className="font-semibold text-2xl ">Toprated</h3>
         </div>
         <MovieCard />
         <Pagination>
@@ -52,7 +52,7 @@ const Page = () => {
       </div>
       <div className="hidden md:flex w-[100%] flex-col items-center mt-8">
         <div className="w-[100%] max-w-[1230px] flex justify-between items-center mb-5">
-          <h3 className="font-semibold text-2xl ">Upcoming</h3>
+          <h3 className="font-semibold text-2xl ">Toprated</h3>
         </div>
         <div className="hidden md:flex max-w-[1230px]  md:flex-wrap gap-5">
           <MovieCardDesktop />

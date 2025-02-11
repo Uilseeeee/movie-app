@@ -25,7 +25,7 @@ const MovieCard = () => {
         }
       );
       setUpcomingMovieData(response.data.results);
-      console.log("kay", response);
+      console.log("response", response);
     } catch (err) {
       console.log(err);
     }
