@@ -17,7 +17,7 @@ const MovieCard = () => {
   const getUpcomingMovieData = async () => {
     try {
       const response = await axios.get(
-        `${TMDB_BASE_URL}/movie/upcoming?language=en-US&page=1`,
+        `${TMDB_BASE_URL}/movie/top_rated?language=en-US&page=1`,
         {
           headers: {
             Authorization: `Bearer ${TMDB_API_TOKEN}`,

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React from "react";
 import axios from "axios";
@@ -34,27 +34,54 @@ function DetailCard() {
   }, []);
 
   return (
-    <div>
-      {upcomingMovieData.map((movie) => (
-        <Card key={movie.id} className="w-[157px] h-[309px]  rounded-[10px]">
-          <Image
-            src={`https://image.tmdb.org/t/p/w1280${movie.poster_path}`}
-            width={157}
-            height={233}
-            alt="Picture of the author"
-            className="rounded-tr-[10px] rounded-tl-[10px]"
-          />
-          <div className="p-2">
+    <div className="flex justify-center h-screen -mt-20">
+      {upcomingMovieData.slice(0, 1).map((movie) => (
+        <div
+          key={movie.id}
+          className="flex justify-center flex-col w-4/5 self-center"
+        >
+          <div className="flex justify-between">
+            <h1 className="font-bold text-4xl flex self-center">
+              {movie.title}
+            </h1>
             <div className="flex items-center gap-1 ">
               <Star className="text-yellow-400 w-4 h-4 fill-yellow-400" />
               {movie.vote_average}/10
             </div>
-            <div className="font-normal text-sm">{movie.title}</div>
           </div>
-        </Card>
+
+          <div className="flex flex-row gap-[30px]">
+            <div>
+              <Card
+                key={movie.id}
+                className="w-[300px] h-[400px] rounded-[10px] my-5"
+              >
+                <Image
+                  src={`https://image.tmdb.org/t/p/w1280${movie.poster_path}`}
+                  width={300}
+                  height={400}
+                  alt="Picture of the author"
+                  className="rounded-tr-[10px] rounded-tl-[10px]"
+                />
+              </Card>
+             
+            </div>
+            <Image
+              src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`}
+              width={1000}
+              height={200}
+              alt="Picture of the author"
+              className="rounded-tr-[10px] rounded-tl-[10px]"
+            />
+              </div>
+             <p className="font-normal text-xl my-4">
+                {movie.overview}
+              </p>
+        
+        </div>
       ))}
     </div>
   );
 }
 
-export default DetailCard ;
+export default DetailCard;

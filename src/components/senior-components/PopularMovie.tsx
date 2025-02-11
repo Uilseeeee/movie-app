@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 import { Card } from "../ui/card";
 import { useState, useEffect } from "react";
@@ -8,11 +9,13 @@ import Image from "next/image";
 import { Star, ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+
 const TMDB_BASE_URL = process.env.TMDB_BASE_URL;
 const TMDB_API_TOKEN = process.env.TMDB_API_TOKEN;
+
 function PopularMovie() {
   const [popularMovieData, setPopularMoviesData] = useState<Movie[]>([]);
-    const router = useRouter();
+  const router = useRouter();
   const PopularMovie = async () => {
     try {
       const response = await axios.get(
@@ -28,15 +31,16 @@ function PopularMovie() {
       console.log(err);
     }
   };
-const handleMovieClick = (movieId: number) => {
-  console.log(movieId, "idddddd");
+  const handleMovieClick = (movieId: number) => {
+    console.log(movieId, "");
 
-  router.push(`/detail/${movieId}`);
-};
+    router.push(`/detail/${movieId}`);
+  };
 
   useEffect(() => {
     PopularMovie();
   }, []);
+
   return (
     <div className="p-[5px] mt-5">
       <div className="md:hidden  flex flex-wrap gap-8">
