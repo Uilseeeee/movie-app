@@ -1,13 +1,12 @@
-import React from 'react'
-import MovieGuideCard from '../_components/MovieGuideCard'
+import React from "react";
+import Detailcard from "@/app/detail/senior-components/DetailCard"
 
 function page() {
-
   return (
     <div>
- <MovieGuideCard/>
+      <Detailcard />
     </div>
-  )
+  );
 }
 
-export default page
+export default page;
