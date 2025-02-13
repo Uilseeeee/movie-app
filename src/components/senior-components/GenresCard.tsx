@@ -42,7 +42,7 @@ function GenresCard() {
   }, []);
 
   return (
-    <div className="p-[5px]">
+    <div className="p-[5px] h-fit flex justify-end">
       {/* <div className="md:hidden  flex flex-wrap gap-5 mt-8">
         <div className="w-[100%] max-w-[1175px] flex justify-between items-center mb-5"></div>
         {upcomingMovieData.slice(0, 1).map((movie) => (
@@ -68,11 +68,11 @@ function GenresCard() {
           </Card>
         ))}
       </div> */}
-      <div className="w-[100%] flex justify-center mt-8">
+      <div className="w-[100%] h-screen flex justify-center mt-8">
         <div className="hidden md:flex w-[100%] flex-col items-center mt-8">
           <div className=" flex justify-between items-center mb-5"></div>
-          <div className="hidden md:flex max-w-[2000px]  md:flex-wrap gap-5">
-            {upcomingMovieData.slice(0, 20).map((movie) => (
+          <div className="md:flex max-w-[2000px]  md:flex-wrap gap-5 flex justify-center">
+            {upcomingMovieData.slice(0, 15).map((movie) => (
               <Card
                 key={movie.id}
                 className="w-[170px] h-[339px]  rounded-[10px]"

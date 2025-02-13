@@ -40,8 +40,9 @@ const Genres = () => {
   }, []);
 
   return (
-    <div className="justify-center w-4/5 ">
-      <div className="h-screen ml-36 flex flex-row">
+    <div className="flex justify-center">
+    <div className="justify-center w-4/5 h-fit ">
+      <div className="flex flex-row h-fit justify-between">
         <div>
           <div>
             <h1 className="text-3xl font-semibold mt-14">Search filter</h1>
@@ -62,8 +63,10 @@ const Genres = () => {
             ))}
           </div>
         </div>
+        
         <GenresCard></GenresCard>
       </div>
+    </div>
     </div>
   );
 };

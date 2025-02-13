@@ -7,7 +7,7 @@ import UpcomingMovie from "@/components/senior-components/UpcomingMovie";
 export default function Home() {
 
   return (
-    <div className=" w-screen">
+    <div className=" w-screen h-fit">
       <CarouselSlider/>
       <UpcomingMovie/>
       <PopularMovie/>
