@@ -116,7 +116,7 @@ function Header() {
         </DropdownMenu>
         <div className="hidden md:items-center md:flex md:w-[379px] rounded-[8px] md:border md:border-gray mx-[10px] md:px-2">
           <Search className="h-4 w-4"/>
-          <Input className="hidden md:block md:w-full rounded-[8px] border-[0px]"></Input>
+          <Input className="hidden md:block md:w-full rounded-[8px] border-[0px] outline-none"></Input>
         </div>
       </div>
       <div className="flex gap-3">

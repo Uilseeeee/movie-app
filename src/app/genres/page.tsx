@@ -40,33 +40,33 @@ const Genres = () => {
   }, []);
 
   return (
-    <div className="flex justify-center">
-    <div className="justify-center w-4/5 h-fit ">
-      <div className="flex flex-row h-fit justify-between">
-        <div>
+    <div className="flex justify-center h-full">
+      <div className="justify-center w-4/5">
+        <div className="flex flex-row h-full justify-between">
           <div>
-            <h1 className="text-3xl font-semibold mt-14">Search filter</h1>
-            <h1 className="text-2xl font-semibold mt-9">Genres</h1>
-            <h1 className="text-base font-semibold mt-3">
-              See lists of movie by genre
-            </h1>
+            <div>
+              <h1 className="text-3xl font-semibold mt-14">Search filter</h1>
+              <h1 className="text-2xl font-semibold mt-9">Genres</h1>
+              <h1 className="text-base font-semibold mt-3">
+                See lists of movie by genre
+              </h1>
+            </div>
+            <div className="w-[340px] h-[280px] flex border-t border-gray items-center flex-wrap gap-[16px] pt-2 flex-row">
+              {genres.map((genre) => (
+                <div
+                  key={genre.id}
+                  className="h-[20px] border border-gray rounded-full flex justify-between gap-2 items-center p-[10px] text-xs font-semibold "
+                >
+                  {genre.name}
+                  <ChevronRight className="w-4 h-4" />
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="w-[340px] h-[280px] flex border-t border-gray items-center flex-wrap gap-[16px] pt-2 flex-row">
-            {genres.map((genre) => (
-              <div
-                key={genre.id}
-                className="h-[20px] border border-gray rounded-full flex justify-between gap-2 items-center p-[10px] text-xs font-semibold "
-              >
-                {genre.name}
-                <ChevronRight className="w-4 h-4" />
-              </div>
-            ))}
-          </div>
+
+          <GenresCard/>
         </div>
-        
-        <GenresCard></GenresCard>
       </div>
-    </div>
     </div>
   );
 };
