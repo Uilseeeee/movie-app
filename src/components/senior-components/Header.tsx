@@ -16,7 +16,8 @@ import {
 function Header() {
   const { setTheme, theme } = useTheme();
   return (
-    <div className="mx-5 flex items-center justify-between my-5">
+    <div className="flex justify-center">
+    <div className="mx-5 flex items-center justify-between my-5 w-4/5">
       <div className="flex gap-2 text-indigo-700 ">
         <Film />
         <p className="italic font-bold"> Movie Z</p>
@@ -140,6 +141,7 @@ function Header() {
           </Button>
         )}
       </div>
+    </div>
     </div>
   );
 }

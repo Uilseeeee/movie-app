@@ -7,53 +7,60 @@ import { Movie } from "@/types/Movie-type";
 import { Card } from "@/components/ui/card";
 import Image from "next/image";
 import { Star } from "lucide-react";
+import { useParams } from "next/navigation";
+
 const TMDB_BASE_URL = process.env.TMDB_BASE_URL;
 const TMDB_API_TOKEN = process.env.TMDB_API_TOKEN;
-function DetailCard() {
-  const [upcomingMovieData, setUpcomingMovieData] = useState<Movie[]>([]);
 
-  const getUpcomingMovieData = async () => {
+export const DetailCard = () => {
+  const [movieDetail, setMovieDetail] = useState<Movie>({});
+  const { id } = useParams<{ id: string }>();
+  console.log(id);
+
+  const getmovieDetail = async () => {
     try {
-      const response = await axios.get(
-        `${TMDB_BASE_URL}/movie/upcoming?language=en-US&page=1`,
+      const { data } = await axios.get(
+        `${TMDB_BASE_URL}/movie/${id}?language=en-US`,
         {
           headers: {
             Authorization: `Bearer ${TMDB_API_TOKEN}`,
           },
         }
       );
-      setUpcomingMovieData(response.data.results);
-      console.log(response);
+      setMovieDetail(data);
     } catch (err) {
       console.log(err);
     }
   };
 
+  console.log(movieDetail);
+
   useEffect(() => {
-    getUpcomingMovieData();
+    getmovieDetail();
   }, []);
 
   return (
     <div className="flex justify-center h-screen -mt-20">
-      {upcomingMovieData.slice(0, 1).map((movie) => (
+      {/* {movieDetail?.title} */}
+      {movieDetail?.id => (
         <div
-          key={movie.id}
+          key={movieDetail?.title}
           className="flex justify-center flex-col w-4/5 self-center"
         >
           <div className="flex justify-between">
             <h1 className="font-bold text-4xl flex self-center">
-              {movie.title}
+              {movieDetail?.title}
             </h1>
             <div className="flex items-center gap-1 ">
               <Star className="text-yellow-400 w-4 h-4 fill-yellow-400" />
-              {movie.vote_average}/10
+              {movieDetail?.vote_average}/10
             </div>
           </div>
 
           <div className="flex flex-row gap-[30px]">
             <div>
               <Card
-                key={movie.id}
+                key={movieDetail?.id}
                 className="w-[300px] h-[400px] rounded-[10px] my-5"
               >
                 <Image
@@ -64,7 +71,6 @@ function DetailCard() {
                   className="rounded-tr-[10px] rounded-tl-[10px]"
                 />
               </Card>
-             
             </div>
             <Image
               src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`}
@@ -73,15 +79,10 @@ function DetailCard() {
               alt="Picture of the author"
               className="rounded-tr-[10px] rounded-tl-[10px]"
             />
-              </div>
-             <p className="font-normal text-xl my-4">
-                {movie.overview}
-              </p>
-        
+          </div>
+          <p className="font-normal text-xl my-4">{movieDetail?.overview}</p>
         </div>
       ))}
     </div>
   );
-}
-
-export default DetailCard;
+};

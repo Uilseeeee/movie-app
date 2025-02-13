@@ -1,10 +1,10 @@
 import React from "react";
-import Detailcard from "@/app/detail/senior-components/DetailCard"
+import { DetailCard } from "../_senior-components/DetailCard";
 
 function page() {
   return (
     <div>
-      <Detailcard />
+      <DetailCard />
     </div>
   );
 }
