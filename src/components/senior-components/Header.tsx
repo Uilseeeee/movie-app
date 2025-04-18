@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 import { Film, Search, Moon, Sun, ChevronRight } from "lucide-react";
 import { Button } from "../ui/button";
@@ -13,6 +14,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+
 function Header() {
   const { setTheme, theme } = useTheme();
   return (
