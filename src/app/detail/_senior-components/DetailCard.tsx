@@ -14,11 +14,11 @@ const TMDB_BASE_URL = process.env.TMDB_BASE_URL;
 const TMDB_API_TOKEN = process.env.TMDB_API_TOKEN;
 
 export const DetailCard = () => {
-  const [movieDetail, setMovieDetail] = useState<Movie>({});
+  const [movieDetail, setMovieDetail] = useState<Movie | null>(null);
   const { id } = useParams<{ id: string }>();
   console.log(id);
 
-  const getmovieDetail = async () => {
+  const getmovieDetail = React.useCallback(async () => {
     try {
       const { data } = await axios.get(
         `${TMDB_BASE_URL}/movie/${id}?language=en-US`,
@@ -32,13 +32,13 @@ export const DetailCard = () => {
     } catch (err) {
       console.log(err);
     }
-  };
+  }, [id]);
 
   console.log(movieDetail);
 
   useEffect(() => {
     getmovieDetail();
-  }, []);
+  }, [getmovieDetail]);
 
   return (
     <div className="flex justify-center h-screen -mt-20">
