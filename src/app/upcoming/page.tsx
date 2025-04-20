@@ -28,24 +28,24 @@ const Page = () => {
         <Pagination>
           <PaginationContent>
             <PaginationItem>
-              <PaginationPrevious href="#" />
+              <PaginationPrevious href="#" size={"default"} />
             </PaginationItem>
             <PaginationItem>
-              <PaginationLink href="#" isActive>
+              <PaginationLink href="#" isActive size={"default"}>
                 1
               </PaginationLink>
             </PaginationItem>
             <PaginationItem>
-              <PaginationLink href="#">2</PaginationLink>
+              <PaginationLink href="#" size={""}>2</PaginationLink>
             </PaginationItem>
             <PaginationItem>
-              <PaginationLink href="#">3</PaginationLink>
+              <PaginationLink href="#" size={""}>3</PaginationLink>
             </PaginationItem>
             <PaginationItem>
               <PaginationEllipsis />
             </PaginationItem>
             <PaginationItem>
-              <PaginationNext href="#" />
+              <PaginationNext href="#" size={"default"} />
             </PaginationItem>
           </PaginationContent>
         </Pagination>
@@ -60,24 +60,24 @@ const Page = () => {
           <Pagination>
             <PaginationContent>
               <PaginationItem>
-                <PaginationPrevious href="#" />
+                <PaginationPrevious href="#" size={""} />
               </PaginationItem>
               <PaginationItem>
-                <PaginationLink href="#" isActive>
+                <PaginationLink href="#" isActive size={""}>
                   1
                 </PaginationLink>
               </PaginationItem>
               <PaginationItem>
-                <PaginationLink href="#">2</PaginationLink>
+                <PaginationLink href="#" size={""}>2</PaginationLink>
               </PaginationItem>
               <PaginationItem>
-                <PaginationLink href="#">3</PaginationLink>
+                <PaginationLink  href="#" size={""}>3</PaginationLink>
               </PaginationItem>
               <PaginationItem>
                 <PaginationEllipsis />
               </PaginationItem>
               <PaginationItem>
-                <PaginationNext href="#" />
+                <PaginationNext href="#" size={""}/>
               </PaginationItem>
             </PaginationContent>
           </Pagination>

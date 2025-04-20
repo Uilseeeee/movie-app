@@ -1,8 +1,8 @@
 
 import "./globals.css";
-import Header from "@/components/senior-components/Header";
-import Footer from "@/components/senior-components/Footer";
-import { ThemeProvider } from "@/components/senior-components/ThemeProvider";
+import Header from "@/components/_components/Header";
+import Footer from "@/components/_components/Footer";
+import { ThemeProvider } from "@/components/_components/ThemeProvider";
 
 
 export default function RootLayout({

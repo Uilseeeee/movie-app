@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { ChevronRight } from "lucide-react";
-import GenresCard from "@/components/senior-components/GenresCard";
+import GenresCard from "@/components/_components/GenresCard";
 
 const TMDB_BASE_URL = process.env.TMDB_BASE_URL;
 const TMDB_API_TOKEN = process.env.TMDB_API_TOKEN;
