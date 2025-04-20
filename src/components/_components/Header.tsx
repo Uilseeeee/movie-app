@@ -1,7 +1,7 @@
 "use client";
 
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, use } from "react";
 import {
   Film,
   Search,
@@ -23,6 +23,10 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
+
+import { useRouter } from "next/navigation";
+
+
 function Header() {
   const { setTheme, theme } = useTheme();
   const [query, setQuery] = useState("");
@@ -32,6 +36,15 @@ function Header() {
 
   const TMDB_BASE_URL = process.env.TMDB_BASE_URL;
   const TMDB_API_TOKEN = process.env.TMDB_API_TOKEN;
+
+const router = useRouter();
+
+  const handleMovieClick = (movieId: number) => {
+    console.log(movieId, "");
+
+    router.push(`/detail/${movieId}`);
+  };
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -176,6 +189,7 @@ function Header() {
                   <ul className="flex flex-col gap-2 p-2">
                     {results.slice(0, 6).map((movie) => (
                       <li
+                      onClick={()=> handleMovieClick(movie.id)}
                         key={movie.id}
                         className="flex gap-3 items-center p-2 rounded-md hover:bg-gray-100 transition-all"
                       >
