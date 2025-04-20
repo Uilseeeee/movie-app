@@ -23,7 +23,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 
@@ -98,8 +98,10 @@ const router = useRouter();
                     See lists of movies by genre
                   </p>
                 </DropdownMenuLabel>
+                
                 <div className="flex flex-col gap-4">
                   <DropdownMenuSeparator />
+                  <Link href={"/genres"}>
                   <div className="flex gap-4">
                     <DropdownMenuItem className="rounded-full h-[20px] font-semibold text-xs border border-gray">
                       Action <ChevronRight />
@@ -117,6 +119,8 @@ const router = useRouter();
                       Crime <ChevronRight />
                     </DropdownMenuItem>
                   </div>
+                  </Link>
+                  <Link href={"/genres"}>
                   <div className="flex gap-4">
                     <DropdownMenuItem className="rounded-full h-[20px] font-semibold text-xs border border-gray">
                       Documentary <ChevronRight />
@@ -131,6 +135,8 @@ const router = useRouter();
                       Fantasy <ChevronRight />
                     </DropdownMenuItem>
                   </div>
+                  </Link>
+                  <Link href={"/genres"}>
                   <div className="flex gap-4">
                     <DropdownMenuItem className="rounded-full h-[20px] font-semibold text-xs border border-gray">
                       History <ChevronRight />
@@ -144,10 +150,12 @@ const router = useRouter();
                     <DropdownMenuItem className="rounded-full h-[20px] font-semibold text-xs border border-gray">
                       Mystery <ChevronRight />
                     </DropdownMenuItem>
-                    <DropdownMenuItem className="rounded-full h-[20px] font-semibold text-xs border border-gray">
+                    <DropdownMenuItem  className="rounded-full h-[20px] font-semibold text-xs border border-gray">
                       Romance <ChevronRight />
                     </DropdownMenuItem>
                   </div>
+                  </Link>
+                  <Link href={"/genres"}>
                   <div className="flex gap-4">
                     <DropdownMenuItem className="rounded-full h-[20px] font-semibold text-xs border border-gray">
                       Science-Fiction <ChevronRight />
@@ -162,11 +170,14 @@ const router = useRouter();
                       War <ChevronRight />
                     </DropdownMenuItem>
                   </div>
+                  </Link>
+                  <Link href={"/genres"}>
                   <div className="flex gap-4">
                     <DropdownMenuItem className="rounded-full h-[20px] font-semibold text-xs border border-gray">
                       Western <ChevronRight />
                     </DropdownMenuItem>
                   </div>
+                  </Link>
                 </div>
               </div>
             </DropdownMenuContent>
