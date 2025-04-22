@@ -7,9 +7,12 @@ import { Movie } from "@/types/Movie-type";
 import axios from "axios";
 import Image from "next/image";
 import { Star } from "lucide-react";
+import { useRouter } from "next/router";
 
 const TMDB_BASE_URL = process.env.TMDB_BASE_URL;
 const TMDB_API_TOKEN = process.env.TMDB_API_TOKEN;
+
+ 
 
 const MovieCard = () => {
   const [upcomingMovieData, setUpcomingMovieData] = useState<Movie[]>([]);
@@ -31,6 +34,14 @@ const MovieCard = () => {
     }
   };
 
+  const router = useRouter();
+
+  const handleMovieClick = (movieId: number) => {
+    console.log(movieId, "");
+
+    router.push(`/detail/${movieId}`);
+  };
+
   useEffect(() => {
     getUpcomingMovieData();
   }, []);
@@ -38,15 +49,17 @@ const MovieCard = () => {
   console.log(upcomingMovieData);
 
   return (
-    <div className="md:hidden  flex flex-wrap gap-5 mt-8">
+    <div  className="md:hidden  flex flex-wrap gap-5 mt-8">
       {upcomingMovieData.slice(0, 20).map((movie) => (
-        <Card key={movie.id} className="w-[157px] h-[309px]  rounded-[10px]">
+        <Card  key={movie.id} className="w-[157px] h-[309px]  rounded-[10px]">
           <Image
+          onClick={() => handleMovieClick(movie.id)}
             src={`https://image.tmdb.org/t/p/w1280${movie.poster_path}`}
             width={157}
             height={233}
             alt="Picture of the author"
             className="rounded-tr-[10px] rounded-tl-[10px]"
+            
           />
           <div className="p-2">
             <div className="flex items-center gap-1 ">

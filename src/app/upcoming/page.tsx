@@ -18,13 +18,15 @@ const Page = () => {
   const params = useParams();
   console.log(params);
 
+ 
+
   return (
     <div className="p-[5px]">
       <div className="md:hidden  flex flex-wrap gap-5 mt-8">
         <div className="w-[100%] max-w-[1175px] flex justify-between items-center mb-5">
           <h3 className="font-semibold text-2xl ">Upcoming</h3>
         </div>
-        <MovieCard />
+        <MovieCard/>
         <Pagination>
           <PaginationContent>
             <PaginationItem>
