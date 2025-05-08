@@ -20,25 +20,44 @@ export const DetailCard = () => {
 
   const getmovieDetail = React.useCallback(async () => {
     try {
-      const { data } = await axios.get(
-        `${TMDB_BASE_URL}/movie/${id}?language=en-US`,
-        {
-          headers: {
-            Authorization: `Bearer ${TMDB_API_TOKEN}`,
-          },
-        }
+      const [detailResponse, videoResponse] = await Promise.all([
+        axios.get(`${TMDB_BASE_URL}/movie/${id}?language=en-US`, {
+          headers: { Authorization: `Bearer ${TMDB_API_TOKEN}` },
+        }),
+        axios.get(`${TMDB_BASE_URL}/movie/${id}/videos?language=en-US`, {
+          headers: { Authorization: `Bearer ${TMDB_API_TOKEN}` },
+        }),
+      ]);
+
+      const trailer = videoResponse.data.results.find(
+        (vid: { type: string; site: string; key?: string }) =>
+          vid.type === "Trailer" && vid.site === "YouTube"
       );
-      setMovieDetail(data);
+
+      setMovieDetail({
+        ...detailResponse.data,
+        trailerKey: trailer?.key ,
+      });
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   }, [id]);
-
   console.log(movieDetail);
 
   useEffect(() => {
     getmovieDetail();
   }, [getmovieDetail]);
+
+  const handleTrailerClick = () => {
+    if (movieDetail?.trailerKey) {
+      window.open(
+        `https://www.youtube.com/watch?v=${movieDetail.trailerKey}`,
+        "_blank"
+      );
+    } else {
+      alert("trailer not available");
+    }
+  };
 
   return (
     <div className="flex justify-center h-screen -mt-20">
@@ -83,9 +102,11 @@ export const DetailCard = () => {
           />
           <div className="ml-96 mb-10 absolute flex self-end h-10 w-48 flex-row justify-between items-center">
             <button className=" bg-white h-10 w-10 rounded-full flex justify-center items-center">
-              <Play className="text-black h-5 w-5"></Play>
+              <Play onClick={handleTrailerClick}  className="text-black h-5 w-5"></Play>
             </button>
-            <h3 className="text-lg font-medium">Play trailer</h3>
+            <h3 className="text-lg font-medium">
+              Play trailer
+            </h3>
             <h3 className="text-lg font-medium">1:30</h3>
           </div>
         </div>
