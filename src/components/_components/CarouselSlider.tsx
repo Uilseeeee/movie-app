@@ -12,10 +12,13 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { Movie } from "@/types/Movie-type";
+import { useParams } from "next/navigation";
+import axios from "axios";
+
 const TMDB_BASE_URL = process.env.TMDB_BASE_URL;
 const TMDB_API_TOKEN = process.env.TMDB_API_TOKEN;
+
 function CarouselSlider() {
   const [nowPlayingData, setNowPlayingData] = useState<Movie[]>([]);
   const getNowPlayingMovieData = async () => {
@@ -28,12 +31,56 @@ function CarouselSlider() {
           },
         }
       );
+      
       setNowPlayingData(response.data.results);
     } catch (err) {
       console.log(err);
     }
   };
-  
+  const [movieDetail, setMovieDetail] = useState<Movie | null>(null);
+  const { id } = useParams<{ id: string }>();
+  console.log(id);
+
+  const getmovieDetail = React.useCallback(async () => {
+    try {
+      const [detailResponse, videoResponse] = await Promise.all([
+        axios.get(`${TMDB_BASE_URL}/movie/${id}?language=en-US`, {
+          headers: { Authorization: `Bearer ${TMDB_API_TOKEN}` },
+        }),
+        axios.get(`${TMDB_BASE_URL}/movie/${id}/videos?language=en-US`, {
+          headers: { Authorization: `Bearer ${TMDB_API_TOKEN}` },
+        }),
+      ]);
+
+      const trailer = videoResponse.data.results.find(
+        (vid: { type: string; site: string; key?: string }) =>
+          vid.type === "Trailer" && vid.site === "YouTube"
+      );
+
+      setMovieDetail({
+        ...detailResponse.data,
+        trailerKey: trailer?.key,
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  }, [id]);
+  console.log(movieDetail);
+
+  useEffect(() => {
+    getmovieDetail();
+  }, [getmovieDetail]);
+  const handleTrailerClick = () => {
+    if (movieDetail?.trailerKey) {
+      window.open(
+        `https://www.youtube.com/watch?v=${movieDetail.trailerKey}`,
+        "_blank"
+      );
+    } else {
+      alert("trailer not available");
+    }
+  };
+
   useEffect(() => {
     getNowPlayingMovieData();
     // getTrailerData();
@@ -72,7 +119,7 @@ function CarouselSlider() {
                             {movie.overview}
                           </p>
                         </div>
-                        <Button>
+                        <Button onClick={handleTrailerClick}>
                           <Play />
                           Watch trailer
                         </Button>
