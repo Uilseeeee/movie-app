@@ -12,7 +12,7 @@ import { useRouter } from "next/navigation";
 const TMDB_BASE_URL = process.env.TMDB_BASE_URL;
 const TMDB_API_TOKEN = process.env.TMDB_API_TOKEN;
 
-function GenresCard() {
+const GenresCard = () => {
   const [upcomingMovieData, setUpcomingMovieData] = useState<Movie[]>([]);
   const router = useRouter();
 

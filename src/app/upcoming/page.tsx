@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import MovieCardDesktop from "./senior-components/MovieCardDesktop";
+import MovieCardDesktop from "./_components/MovieCardDesktop";
 import {
   Pagination,
   PaginationContent,
@@ -12,7 +12,7 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 import { useParams } from "next/navigation";
-import MovieCard from "./senior-components/MovieCard";
+import MovieCard from "./_components/MovieCard";
 
 const Page = () => {
   const params = useParams();
